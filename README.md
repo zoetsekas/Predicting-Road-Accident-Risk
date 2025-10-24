@@ -36,7 +36,7 @@ graph TD
     G --> M;
     H --> M;
     L --> M;
-    M --> N[Train Meta-Model (Linear Regression)];
+    M --> N["Train Meta-Model (Linear Regression)"];
     N --> O[Save Final Ensemble Model];
 ```
 
