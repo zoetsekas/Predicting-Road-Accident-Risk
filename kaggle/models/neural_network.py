@@ -25,7 +25,7 @@ class NeuralNetwork(nn.Module):
     def forward(self, x):
         return self.model(x)
 
-def create_model(input_size, hidden_size, num_hidden_layers, dropout_rate, learning_rate, optimizer_name):
+def create_nn_model(input_size, hidden_size, num_hidden_layers, dropout_rate, learning_rate, optimizer_name):
     model = NeuralNetwork(input_size, hidden_size, num_hidden_layers, dropout_rate)
     
     optimizer_class = getattr(optim, optimizer_name)
@@ -72,18 +72,18 @@ if __name__ == '__main__':
         train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
 
         # Create and train the model
-        model, optimizer = create_model(
-            input_size, 
-            hidden_size, 
-            num_hidden_layers, 
-            dropout_rate, 
-            learning_rate, 
+        model, optimizer = create_nn_model(
+            input_size,
+            hidden_size,
+            num_hidden_layers,
+            dropout_rate,
+            learning_rate,
             optimizer_name
         )
-        
+
         # Simple training loop
         train_model(model, optimizer, train_loader)
-        
+
         models.append(model)
 
         print(f"Model for fold {fold+1} created and trained successfully.")
