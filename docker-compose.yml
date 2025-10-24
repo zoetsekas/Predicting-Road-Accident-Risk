@@ -1,0 +1,17 @@
+services:
+  app:
+    env_file: ./system.env
+    container_name: accident-app
+    image: ${IMAGE_NAME}:${IMAGE_TAG}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [ gpu ]
+    build:
+      shm_size: '11gb'
+      dockerfile: .Dockerfile
+    ports:
+      - "8000:8000"

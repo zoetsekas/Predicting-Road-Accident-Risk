@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "Predicting-Road-Accident-Risk"
+version = "0.1.0"
+description = "A project to predict road accident risk."
+authors = ["Zoe Tsekas <zoetsekas@outlook.com>"]
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "3.12.2"
+scipy = "*"
+numpy = "*"
+pandas = "*"
+ray = "*"
+torch = {version = ">=2.9.0 <3.0", source = "pytorch"}
+scikit-learn = "*"
+xgboost = "*"
+lightgbm = "*"
+seaborn = "*"
+matplotlib = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[[tool.poetry.source]]
+name = "pytorch"
+url = "https://download.pytorch.org/whl/cu130"
+priority = "explicit"
